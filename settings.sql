@@ -1,0 +1,2 @@
+CREATE USER testuser WITH PASSWORD 'testpass';
+GRANT ALL PRIVILEGES ON DATABASE appapp TO testuser;
