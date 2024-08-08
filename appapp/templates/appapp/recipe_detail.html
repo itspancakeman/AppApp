@@ -1,0 +1,12 @@
+<h2>{{ recipe.name }} <a href="">(edit)</a></h2>
+<h4>{{ recipe.created_by }}</h4>
+<h4>{{ recipe.rating }}</h4>
+
+<h3>Ingredients <a href="">(+)</a></h3>
+<ul>
+    {% for ingredient in recipe.ingredients.all %}
+    <li>
+        <a href="">{{ ingredient.name }}</a>
+    </li>
+    {% endfor %}
+</ul>

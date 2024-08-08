@@ -1,0 +1,11 @@
+<h2>{{ ingredient.name }} <a href="">(edit)</a></h2>
+<h4>{{ ingredient.icon }}</h4>
+
+<h3>Recipes <a href="">(+)</a></h3>
+<ul>
+    {% for recipe in ingredient.recipes.all %}
+    <li>
+        <a href="">{{ recipe.name }}</a>
+    </li>
+    {% endfor %}
+</ul>

@@ -2,7 +2,9 @@
 <ul>
     {% for recipe in recipes %}
     <li>
-        <a href="">{{ recipe.name }}</a>
+        <a href="{% url 'recipe_detail' pk=recipe.pk %}">
+            {{ recipe.name }}
+        </a>
     </li>
     {% endfor %}
 </ul>
