@@ -2,7 +2,7 @@
 <ul>
     {% for ingredient in ingredients %}
     <li>
-        <a href="{%url 'ingredient_detail' pk=ingredient.pk %}">
+        <a href="{% url 'ingredient_detail' pk=ingredient.pk %}">
             {{ ingredient.name }}
         </a>
     </li>
