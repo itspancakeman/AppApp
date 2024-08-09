@@ -1,0 +1,18 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">
+        <title>AppApp</title>
+        <link rel="stylesheet" href="{% static 'css/appapp.css' %}" />
+    </head>
+    <body>
+        <h1>The AppApp!</h1>
+        <nav>
+            <a href="/ingredients">Ingredients</a>
+            <a href="/recipes">Recipes</a>
+        </nav>
+        {% block content %} {% endblock %}
+    </body>
+</html>

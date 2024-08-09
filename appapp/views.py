@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import IngredientForm
 
 from .models import Ingredient, Recipe
 
@@ -17,4 +19,14 @@ def ingredient_detail(request, pk):
 def recipe_detail(request, pk):
     recipe = Recipe.objects.get(id=pk)
     return render(request, 'appapp/recipe_detail.html', {'recipe': recipe})
+
+def ingredient_create(request):
+    if request.method == 'POST':
+        form = IngredientForm(request.POST)
+        if form.is_valid():
+            ingredient = form.save()
+            return redirect('ingredient_detail', pk=ingredient.pk)
+        else:
+            form = IngredientForm()
+        return render(request, 'appapp/ingredient_form.html', {'form': form})
 

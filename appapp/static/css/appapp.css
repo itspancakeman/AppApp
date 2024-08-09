@@ -1,0 +1,41 @@
+body {
+    font-family: "Raleway", sans-serif;
+    max-width: 750px;
+    margin: auto;
+    padding: 7.5px 3.5px;
+    background-color: #FF8225;
+    color: #F8EDED;
+}
+
+nav a {
+    border: 1px solid #B43F3F;
+    margin: 5px;
+    padding: 5px;
+    background-color: #173B45;
+    color: #F8EDED;
+}
+
+nav a:hover {
+    background-color: #FF8225;
+    color: #173B45;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 5px;
+}
+
+h1 {
+    font: inherit;
+    color: inherit;
+    letter-spacing: -0.05em;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+}
+
+h2 > a {
+    font-size: 0.75em;
+}
