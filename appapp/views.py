@@ -62,3 +62,7 @@ def recipe_edit(request, pk):
         form = RecipeForm(instance=recipe)
     return render(request, 'appapp/recipe_create.html', {'form': form})
 
+def ingredient_delete(request, pk):
+    Ingredient.objects.get(id=pk).delete()
+    return redirect('ingredient_list')
+

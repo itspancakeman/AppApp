@@ -1,6 +1,8 @@
 <h2>{{ ingredient.name }} <a href="{% url 'ingredient_edit' pk=ingredient.pk %}">(edit)</a></h2>
 <h4>{{ ingredient.icon }}</h4>
 
+<a href="{% url 'ingredient_delete' pk=ingredient.pk %}">Delete</a>
+
 <h3>Recipes <a href="">(+)</a></h3>
 <ul>
     {% for recipe in ingredient.recipes.all %}
