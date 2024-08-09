@@ -26,7 +26,19 @@ def ingredient_create(request):
         if form.is_valid():
             ingredient = form.save()
             return redirect('ingredient_detail', pk=ingredient.pk)
-        else:
-            form = IngredientForm()
-        return render(request, 'appapp/ingredient_form.html', {'form': form})
+    else:
+        form = IngredientForm()
+    return render(request, 'appapp/ingredient_create.html', {'form': form})
+
+def recipe_create(request):
+    if request.method == 'POST':
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            recipe = form.save()
+            return redirect('recipe_detail', pk=recipe.pk)
+    else:
+        form = RecipeForm()
+    return render(request, 'appapp/recipe_create.html', {'form': form})
+
+
 

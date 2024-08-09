@@ -1,0 +1,7 @@
+{% extends 'appapp/base.html' %} {% block content %}
+<h1>New Ingredient</h1>
+<form method="POST" class="ingredient_form">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="save btn btn_default">Save</button>
+</form>
+{% endblock %}
