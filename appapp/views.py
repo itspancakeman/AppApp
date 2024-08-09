@@ -66,3 +66,7 @@ def ingredient_delete(request, pk):
     Ingredient.objects.get(id=pk).delete()
     return redirect('ingredient_list')
 
+def recipe_delete(request, pk):
+    Recipe.objects.get(id=pk).delete()
+    return redirect('recipe_list')
+
