@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .forms import IngredientForm
+from .forms import IngredientForm, RecipeForm
 
 from .models import Ingredient, Recipe
 

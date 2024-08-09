@@ -1,5 +1,5 @@
 {% extends 'appapp/base.html' %} {% block content %}
-<h2>Recipes <a href="">(+)</a></h2>
+<h2>Recipes <a href="{% url 'recipe_create' %}">(+)</a></h2>
 <ul>
     {% for recipe in recipes %}
     <li>
