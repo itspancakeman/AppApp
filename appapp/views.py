@@ -40,5 +40,14 @@ def recipe_create(request):
         form = RecipeForm()
     return render(request, 'appapp/recipe_create.html', {'form': form})
 
-
+def ingredient_edit(request, pk):
+    ingredient = Ingredient.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = IngredientForm(request.POST, instance=ingredient)
+        if form.is_valid():
+            ingredient = form.save()
+            return redirect('ingredient_detail', pk=ingredient.pk)
+    else:
+        form = IngredientForm(instance=ingredient)
+    return render(request, 'appapp/ingredient_create.html', {'form': form})
 
