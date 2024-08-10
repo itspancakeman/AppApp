@@ -45,3 +45,6 @@ Below is a list of features I'd like to work on adding in the near future, I wil
 
 ## Screenshots
 
+![home_page](https://github.com/user-attachments/assets/7c73e6e6-aadb-446e-9305-cbc021f833df)
+![ingredients_page](https://github.com/user-attachments/assets/43e67783-5f61-42c9-b283-f66440f47264)
+![recipes_page](https://github.com/user-attachments/assets/cc083850-8207-4711-93ec-09ed50cc881b)
