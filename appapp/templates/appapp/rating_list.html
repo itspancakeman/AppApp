@@ -1,0 +1,10 @@
+{% extends 'appapp/base.html' %} {% block content %}
+<h2>Ratings <a href="{% url 'rating_create' %}">(+)</a></h2>
+<ul>
+    {% for rating in ratings %}
+    <li>{{ rating.stars }}</li>
+    <li>{{ rating.left_by }}</li>
+    <li><a href="{% url 'recipe_detail' pk=rating.pk %}">{{ rating.recipe }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

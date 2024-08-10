@@ -5,9 +5,9 @@
 
 <h3>Recipes <a href="">(+)</a></h3>
 <ul>
-    {% for used_in in ingredient.used_in.all %}
+    {% for recipe in ingredient.used_in.all %}
     <li>
-        <a href="">{{ ingredient.used_in }}</a>
+        <a href="">{{ recipe.name }}</a>
     </li>
     {% endfor %}
 </ul>

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from .forms import IngredientForm, RecipeForm, RatingForm
 
-from .models import Ingredient, Recipe
+from .models import Ingredient, Recipe, Rating
 
 def ingredient_list(request):
     ingredients = Ingredient.objects.all()
@@ -80,4 +80,7 @@ def rating_create(request):
         form = RatingForm()
     return render(request, 'appapp/rating_create.html', {'form': form})
 
+def rating_list(request):
+    ratings = Rating.objects.all()
+    return render(request, 'appapp/rating_list.html', {'ratings': ratings})
 
