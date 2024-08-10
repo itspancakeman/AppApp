@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf.urls import include
+from django.contrib import admin
 
 urlpatterns = [
     path('ingredients', views.ingredient_list, name='ingredient_list'),
@@ -16,4 +18,6 @@ urlpatterns = [
     path('ratings', views.rating_list, name='rating_list'),
     path('users/new', views.user_create, name='user_create'),
     path('', views.home_page, name='home_page'),
+    path('ingredients/<int:pk>/add_photo', views.add_photo, name='add_photo'),
+    path('admin/', admin.site.urls),
 ]

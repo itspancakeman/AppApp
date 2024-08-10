@@ -2,7 +2,13 @@ from django.shortcuts import render, redirect
 
 from .forms import IngredientForm, RecipeForm, RatingForm, UserForm
 
-from .models import Ingredient, Recipe, Rating, User
+from .models import Ingredient, Recipe, Rating, User, Photo
+
+import uuid
+import boto3
+
+S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
+BUCKET = 'appappstorage'
 
 def ingredient_list(request):
     ingredients = Ingredient.objects.all()
@@ -97,4 +103,16 @@ def user_create(request):
 def home_page(request):
     return render(request, 'appapp/home_page.html')
 
+def add_photo(request, pk):
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            Photo.objects.create(url=url, pk=photo_file.pk)
+        except:
+            print('An error occured uploading file to S3')
+    return redirect('ingredient_detail', pk=photo_file.pk)
 

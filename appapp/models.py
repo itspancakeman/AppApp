@@ -30,3 +30,11 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Photo(models.Model):
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    url = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f"Photo for ingredient_icon: {self.ingredient_id} @{self.url}"
+
