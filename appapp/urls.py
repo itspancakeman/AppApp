@@ -15,4 +15,5 @@ urlpatterns = [
     path('ratings/new', views.rating_create, name='rating_create'),
     path('ratings', views.rating_list, name='rating_list'),
     path('users/new', views.user_create, name='user_create'),
+    path('', views.home_page, name='home_page'),
 ]

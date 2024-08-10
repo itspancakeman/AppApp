@@ -94,4 +94,7 @@ def user_create(request):
         form = UserForm()
     return render(request, 'appapp/user_create.html', {'form': form})
 
+def home_page(request):
+    return render(request, 'appapp/home_page.html')
+
 
