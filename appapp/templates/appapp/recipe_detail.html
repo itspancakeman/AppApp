@@ -2,6 +2,7 @@
 <h4>{{ recipe.created_by }}</h4>
 <h4>{{ recipe.rating }}</h4>
 
+<a href="{% url 'rating_create' %}">Leave a rating!</a>
 <a href="{% url 'recipe_delete' pk=recipe.pk %}">Delete</a>
 
 <h3>Ingredients <a href="">(+)</a></h3>

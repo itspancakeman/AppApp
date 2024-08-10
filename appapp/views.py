@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .forms import IngredientForm, RecipeForm
+from .forms import IngredientForm, RecipeForm, RatingForm
 
 from .models import Ingredient, Recipe
 
@@ -69,4 +69,15 @@ def ingredient_delete(request, pk):
 def recipe_delete(request, pk):
     Recipe.objects.get(id=pk).delete()
     return redirect('recipe_list')
+
+def rating_create(request):
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rating = form.save()
+            return redirect ('recipe_list', pk=rating.pk)
+    else:
+        form = RatingForm()
+    return render(request, 'appapp/rating_create.html', {'form': form})
+
 
