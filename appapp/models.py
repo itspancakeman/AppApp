@@ -13,7 +13,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=100)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     ingredients = models.ManyToManyField("Ingredient")
-    rating = models.ManyToManyField("Rating", related_name="Rating", blank=True, null=True)
+    rating = models.ForeignKey("Rating", on_delete=models.SET_NULL, related_name="Rating", null=True, blank=True)
 
     def __str__(self):
         return self.name

@@ -1,4 +1,7 @@
 {% extends 'appapp/base.html' %} {% block content %}
+
+<img src="../../static/images/ratings_logo.png">
+
 <h2>Ratings <a href="{% url 'rating_create' %}">(+)</a></h2>
 <ul>
     {% for rating in ratings %}

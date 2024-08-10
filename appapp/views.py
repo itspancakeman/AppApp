@@ -81,7 +81,7 @@ def rating_create(request):
         form = RatingForm(request.POST)
         if form.is_valid():
             rating = form.save()
-            return redirect ('recipe_list', pk=rating.pk)
+            return redirect ('recipe_list')
     else:
         form = RatingForm()
     return render(request, 'appapp/rating_create.html', {'form': form})
