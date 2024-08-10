@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 
-from .forms import IngredientForm, RecipeForm, RatingForm
+from .forms import IngredientForm, RecipeForm, RatingForm, UserForm
 
-from .models import Ingredient, Recipe, Rating
+from .models import Ingredient, Recipe, Rating, User
 
 def ingredient_list(request):
     ingredients = Ingredient.objects.all()
@@ -83,4 +83,15 @@ def rating_create(request):
 def rating_list(request):
     ratings = Rating.objects.all()
     return render(request, 'appapp/rating_list.html', {'ratings': ratings})
+
+def user_create(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('user_details', pk=user.pk)
+    else:
+        form = UserForm()
+    return render(request, 'appapp/user_create.html', {'form': form})
+
 
